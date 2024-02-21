@@ -16,7 +16,7 @@ function SignUpForm({setToken}){
       },
       body: JSON.stringify({
         username: username,
-        password: "password"
+        password: password
       })
     }
       );
@@ -40,6 +40,7 @@ function SignUpForm({setToken}){
       <label>Password:{" "}
         <input type="current-password" value={password} onChange={(e)=>setPassword(e.target.value)} />
       </label>
+      <br></br>
       <br></br>
       <button>Submit</button>
     </form>

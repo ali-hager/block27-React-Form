@@ -4,6 +4,7 @@ function Authenticate({token}){
 
   const [successMessage, setSuccessMessage] = useState(null)
   const [error, setError] = useState(null)
+  const [username, setUsername] = useState(null);
   
   async function handleClick(){
     //console.log(handleClick)
@@ -18,6 +19,7 @@ function Authenticate({token}){
       })
       const result = await response.json();
       setSuccessMessage(result.message);
+      setUsername(result.data.username)
     } catch (error) {
       setError(error.message);
     }
@@ -28,6 +30,7 @@ function Authenticate({token}){
     <h2>Authenticate</h2>
     {successMessage && <p>{successMessage}</p>}
     {error && <p>{error}</p>}
+    {username && <p>{username}</p>}
     <button onClick={handleClick}>Authenticate Token!</button>
     </div>
   );
